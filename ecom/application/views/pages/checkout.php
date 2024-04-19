@@ -45,7 +45,7 @@
 								<div class="cart_quantity_button">
                                     <input type="hidden" value="<?php echo $items['rowid'] ?>" name="rowid">
 									<input class="cart_quantity_input" type="number" min="1" name="quantity" value="<?php echo $items['qty']?>" autocomplete="off" size="2">
-                                    <input type="submit" name="capnhat" class="btn btn-success" value="Update"></a>
+                                    <!-- <input type="submit" name="capnhat" class="btn btn-success" value="Update"></a> -->
 								</div>
                                 
                                 </form>

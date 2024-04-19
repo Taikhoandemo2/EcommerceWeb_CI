@@ -19,21 +19,23 @@
             }
     ?>
       
-
+      <div id="nameError" style="color: red;"></div>
         <form action = "<?php echo base_url('product/update/'.$product->id)?>" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
-            <input type="text" value="<?php echo $product->title?>" name="title" class="form-control" onkeyup="ChangeToSlug();" id="slug" aria-describedby="emailHelp" >
+            <input type="text" value="<?php echo $product->title?>" name="title" class="form-control" onkeyup="ChangeToSlug();" id="slug" aria-describedby="emailHelp" oninput="validateInput(this)">
             <?php echo '<span class="text text-danger">'.form_error('title').'</span>';?> 
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Price</label>
-            <input type="text" value="<?php echo $product->price?>" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input type="text" value="<?php echo $product->price?>" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="validateNumberInput(this)">
+            <div id="priceError" style="color: red;"></div>
             <?php echo '<span class="text text-danger">'.form_error('price').'</span>';?> 
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Quantity</label>
-            <input type="text" value="<?php echo $product->quantity?> " name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input type="text" value="<?php echo $product->quantity?> " name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="validateQuantityInput(this)">
+            <div id="quantityError" style="color: red;"></div>
             <?php echo '<span class="text text-danger">'.form_error('quantity').'</span>';?>
         </div>
         <div class="form-group">
@@ -43,7 +45,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <input type="text" value="<?php echo $product->description?>" name="description" class="form-control" id="exampleInputPassword1" >
+            <input type="text" value="<?php echo $product->description?>" name="description" class="form-control" id="exampleInputPassword1" oninput="validateInput(this)">
             <?php echo '<span class="text text-danger">'.form_error('description').'</span>';?>
         </div>
         <div class="form-group">

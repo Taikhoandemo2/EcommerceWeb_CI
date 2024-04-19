@@ -92,6 +92,8 @@ $route['order/view/(:any)']['GET']='OrderController/view/$1';
 $route['order/delete/(:any)']['GET']='OrderController/delete_order/$1';
 $route['order/print_order/(:any)']['GET']='OrderController/print_order/$1';
 
-
+//revenue
+$route['revenue/revenue_view']['GET'] = 'RevenueController/index';
+$route['revenue/export_excel']['GET'] = 'RevenueController/export_excel';
 
 

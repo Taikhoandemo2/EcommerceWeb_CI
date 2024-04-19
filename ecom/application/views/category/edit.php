@@ -20,10 +20,11 @@ if ($this->session->flashdata('success'))
         <?php
     }
     ?>
+    <div id="nameError" style="color: red;"></div>
   <form action = "<?php echo base_url('category/update/'.$category->id)?>" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleInputEmail1">Title</label>
-    <input type="text" value="<?php echo $category->title?>" name="title" value="<?php echo $category->title?>" class="form-control" onkeyup="ChangeToSlug();" id="slug" aria-describedby="emailHelp" >
+    <input type="text" value="<?php echo $category->title?>" name="title" value="<?php echo $category->title?>" class="form-control" onkeyup="ChangeToSlug();" id="slug" aria-describedby="emailHelp" oninput="validateInput(this)">
     <?php echo '<span class="text text-danger">'.form_error('title').'</span>';?>
   </div>
   <div class="form-group">
@@ -33,7 +34,7 @@ if ($this->session->flashdata('success'))
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <input type="text" value="<?php echo $category->description?>" name="description" value="<?php echo $category->description?>" class="form-control" id="exampleInputPassword1" >
+    <input type="text" value="<?php echo $category->description?>" name="description" value="<?php echo $category->description?>" class="form-control" id="exampleInputPassword1" oninput="validateInput(this)">
     <?php echo '<span class="text text-danger">'.form_error('description').'</span>';?>
   </div>
   <div class="form-group">

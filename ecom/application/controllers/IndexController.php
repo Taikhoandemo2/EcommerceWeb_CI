@@ -104,23 +104,55 @@ class IndexController extends CI_Controller {
 			if ($result)
 			{
 				//order
-				$order_code=rand(00,9999);
-				$data_order=array(
-					'order_code'=>$order_code,
-					'ship_id'=>$result,
-					'status'=>1
-				);
-				$insert_order = $this->LoginModel->insert_order($data_order); 
-				//order details
-				foreach($this->cart->contents() as $items){
-					$data_order_details=array(
-						'order_code'=>$order_code,
-						'product_id'=>$items['id'],
-						'quantity'=>$items['qty']
-					);
-					$insert_order_details = $this->LoginModel->insert_order_details($data_order_details); 
-				}
+				// $order_code=rand(00,9999);
+				// $data_order=array(
+				// 	'order_code'=>$order_code,
+				// 	'ship_id'=>$result,
+				// 	'status'=>1
+				// );
+				// $insert_order = $this->LoginModel->insert_order($data_order); 
+				// //order details
+				// foreach($this->cart->contents() as $items){
+				// 	$data_order_details=array(
+				// 		'order_code'=>$order_code,
+				// 		'product_id'=>$items['id'],
+				// 		'quantity'=>$items['qty']
+				// 	);
+				// 	$insert_order_details = $this->LoginModel->insert_order_details($data_order_details); 
+					
+				// 	$update_product = $this->LoginModel->update_quantity($data_order_details);
+				
+				// }
+				$order_code = rand(0, 9999); // Đảm bảo rằng bạn đã khai báo $order_code ở trước đó
 
+// Tạo đơn hàng
+$data_order = array(
+    'order_code' => $order_code,
+    'ship_id' => $result,
+    'status' => 1
+);
+$insert_order = $this->LoginModel->insert_order($data_order);
+
+// Thêm chi tiết đơn hàng
+foreach ($this->cart->contents() as $items) {
+    $product_id = $items['id'];
+    $quantity = $items['qty'];
+
+    // Thêm chi tiết đơn hàng cho từng sản phẩm
+    $data_order_details = array(
+        'order_code' => $order_code,
+        'product_id' => $product_id,
+        'quantity' => $quantity
+    );
+    $insert_order_details = $this->LoginModel->insert_order_details($data_order_details);
+
+	
+
+}
+
+				
+
+				
 				$this->session->set_flashdata('success','Order Successfully, We call you to delivery soon!');
 				$this->cart->destroy();
 				//send mail
@@ -145,7 +177,7 @@ class IndexController extends CI_Controller {
 		$config = array();
         $config["base_url"] = base_url() .'/phan-trang'; 
 		$config['total_rows'] = ceil($this->IndexModel->countAllProduct()); //đếm tất cả sản phẩm //8 //hàm ceil làm tròn phân trang 
-		$config["per_page"] = 6; //từng trang 3 sản phẩn
+		$config["per_page"] = 10; //từng trang 3 sản phẩn
         $config["uri_segment"] = 2; //lấy số trang hiện tại
 		$config['use_page_numbers'] = TRUE; //trang có số
 		$config['full_tag_open'] = '<ul class="pagination">';
@@ -184,7 +216,7 @@ class IndexController extends CI_Controller {
 		$config = array();
         $config["base_url"] = base_url() .'/danh-muc'.'/'.$id.'/'.$this->data['slug']; 
 		$config['total_rows'] = ceil($this->IndexModel->countAllProductByCate($id)); //đếm tất cả sản phẩm //8 //hàm ceil làm tròn phân trang 
-		$config["per_page"] = 2; //từng trang 3 sản phẩn
+		$config["per_page"] = 4; //từng trang 3 sản phẩn
         $config["uri_segment"] = 4; //lấy số trang hiện tại
 		$config['use_page_numbers'] = TRUE; //trang có số
 		$config['full_tag_open'] = '<ul class="pagination">';
@@ -291,7 +323,7 @@ class IndexController extends CI_Controller {
 			$this->load->view('pages/checkout');
 			$this->load->view('pages/template/footer');
 		}else{
-			redirect(base_url().'gio-hang');
+			redirect(base_url().'dang-nhap');
 		}
 	}
 	// public function add_to_cart(){

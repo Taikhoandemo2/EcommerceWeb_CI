@@ -65,7 +65,17 @@
           <a class="dropdown-item" href="<?php echo base_url('slider/list')?>">List Slider</a>
         </div>
       </li>
-     
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Revenue</a>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- <a class="dropdown-item" href="http://localhost:7000/application/views/revenue/revenue_view.php">Revenue</a> -->
+
+            <a class="dropdown-item" href=" <?php echo base_url('revenue/revenue_view') ?>">Revenue</a>
+          </div>
+        </li>
     </ul>
   </div>
 </nav>

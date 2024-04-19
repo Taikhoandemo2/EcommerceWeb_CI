@@ -33,17 +33,24 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>New User Signup!</h2>
+						<div id="nameError" style="color: red;"></div>
 						<form action="<?php echo base_url('dang-ky')?>" method="POST">
-							<input type="text" name="name" placeholder="Name"/>
+							<input type="text" name="name" id="nameInput" placeholder="Name" oninput="validateInput(this)"/>						
 							<?php echo form_error('name')?>
-							<input type="text" name="phone" placeholder="Phone"/>
+
+							<input type="text" name="phone" placeholder="Phone" oninput="validateInput(this)"/>				
 							<?php echo form_error('phone')?>
-							<input type="text" name="address" placeholder="Address"/>
+
+							<input type="text" name="address" placeholder="Address" oninput="validateInput(this)"/>
 							<?php echo form_error('address')?>
-							<input type="email" name="email" placeholder="Email Address"/>
+
+							<input type="email" name="email"  placeholder="Email Address" />
 							<?php echo form_error('email')?>
-							<input type="password" name="password" placeholder="Password"/>
+							
+
+							<input type="password" name="password" placeholder="Password" oninput="validateInput(this)"/>
 							<?php echo form_error('password')?>
+							
 
 							<button type="submit" class="btn btn-default">Signup</button>
 						</form>

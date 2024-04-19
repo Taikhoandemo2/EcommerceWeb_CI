@@ -17,20 +17,23 @@
                 <?php
             }
     ?>
+    <div id="nameError" style="color: red;"></div>
         <form action = "<?php echo base_url('product/store')?>" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleInputEmail1">Title</label>
-            <input type="text" name="title" class="form-control" id="slug" onkeyup="ChangeToSlug();" aria-describedby="emailHelp" >
+            <input type="text" name="title" class="form-control" id="slug" onkeyup="ChangeToSlug();" aria-describedby="emailHelp" oninput="validateInput(this)">
             <?php echo '<span class="text text-danger">'.form_error('title').'</span>';?>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Price</label>
-            <input type="text" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input type="text" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="validateNumberInput(this)" >
+            <div id="priceError" style="color: red;"></div>
             <?php echo '<span class="text text-danger">'.form_error('price').'</span>';?>
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Quantity</label>
-            <input type="text" name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" >
+            <input type="text" name="quantity" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" oninput="validateQuantityInput(this)">
+            <div id="quantityError" style="color: red;"></div>
             <?php echo '<span class="text text-danger">'.form_error('quantity').'</span>';?>
         </div>
         <div class="form-group">
@@ -40,7 +43,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Description</label>
-            <input type="text" name="description" class="form-control" id="exampleInputPassword1" >
+            <input type="text" name="description" class="form-control" id="exampleInputPassword1" oninput="validateInput(this)">
             <?php echo '<span class="text text-danger">'.form_error('description').'</span>';?>
         </div>
         <div class="form-group">

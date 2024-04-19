@@ -15,10 +15,10 @@
 							}
 						</style>
 						<div class="carousel-inner">
-							<!-- <?php
+							<?php
 							foreach($sliders as $key =>$slider){
 							?>
-							<div class="item <?php echo $key==0 ? 'active' : ''?>">
+							<div class="item ">
 							<div class="item active">
 								<div class="col-sm-12">
 									<img src="<?php echo base_url('uploads/sliders/'.$slider->image)?>" class="girl img-responsive" alt="<?php echo $slider->title?>" />
@@ -26,8 +26,8 @@
 							</div>
 							<?php
 							}
-							?> -->
-						</div>
+							?> 
+						</div>  
 						
 						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
 							<i class="fa fa-angle-left"></i>

@@ -22,6 +22,19 @@
         public function insert_order($data_order){
             return $this->db->insert('orders',$data_order);
         }
+        public function update_quantity($data_order_details){
+            $id = $data_order_details['product_id'];
+            $quantity = $data_order_details['quantity'];
+        
+            $sql = "
+            UPDATE products
+            SET quantity = quantity - $quantity
+            WHERE id = $id;
+            ";
+      
+            return $this->db->query($sql);
+        
+        }
         public function insert_order_details($data_order_details){
             return $this->db->insert('order_details',$data_order_details);
         }

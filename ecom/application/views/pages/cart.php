@@ -1,3 +1,13 @@
+<style>
+.cart_description h5 {
+    word-wrap: break-word; /* hoặc */
+    word-break: break-all;
+    display: block; /* Thêm nếu cần */
+    width: 100%; /* hoặc max-width: <giá_trị>; */
+    /* Kiểm tra xem có các thuộc tính khác ghi đè hay không */
+    /* Kiểm tra các phần tử cha */
+}
+</style>
 <section id="cart_items">
 		<div class="container">
 		<?php
@@ -48,7 +58,7 @@
 								<a href=""><img src="<?php echo base_url('uploads/product/'.$items['options']['image'])?>" width="150" height="150" alt="<?php echo $items['name']?>"></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href=""><?php echo $items['name']?></a></h4>
+								<h5><a href=""><?php echo $items['name']?></a></h5>
 								
 							</td>
 							<td class="cart_price">

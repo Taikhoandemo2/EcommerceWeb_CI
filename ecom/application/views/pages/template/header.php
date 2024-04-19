@@ -35,16 +35,16 @@
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
 								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> Group8@domain.com</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="https://twitter.com/?lang=vi"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
 								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 							</ul>
@@ -85,13 +85,14 @@
 							</div>
 						</div> --> 
 					</div>
+
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								<?php
 									if($this->session->userdata('LoggedInCustomer')){
 								?>
-								<li><a href=""><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
 								<li><a href="<?php echo base_url('checkout')?>"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="<?php echo base_url('dang-xuat')?>"><i class="fa fa-lock"></i> Logout</a></li>
@@ -141,8 +142,8 @@
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="https://didongblog.com/">Blog List</a></li>
+										<li><a href="https://spiderum.com/nguoi-dung/Huskywannafly">Blog Single</a></li>
                                     </ul>
                                 </li> 
 								<!-- <li><a href="404.html">404</a></li> -->

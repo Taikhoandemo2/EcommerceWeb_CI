@@ -239,6 +239,12 @@
         $query=$this->db->get_where('products',['status'=>1]);
         return $query->result();
     }
+    // public function getIndexPagination($limit, $start){
+    //     $this->db->where('status', 1); // Thêm điều kiện status = 1 vào trước khi lấy dữ liệu
+    //     $this->db->limit($limit, $start);
+    //     $query = $this->db->get('products');
+    //     return $query->result();
+    // }
     public function getCustomersToken($email){
         $query= $this->db->get_where('customers',['email'=>$email]);
         return $query->result();

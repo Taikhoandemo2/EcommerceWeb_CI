@@ -5,7 +5,7 @@
 
 
   <div class="card-body">
-  <a href="<?php echo base_url('category/list')?>" class="btn btn-success">List Brand</a>
+  <a href="<?php echo base_url('category/list')?>" class="btn btn-success">List Category</a>
     <?php
 if ($this->session->flashdata('success'))
     {
@@ -32,10 +32,11 @@ if ($this->session->flashdata('success'))
         <?php
     }
     ?>
+    <div id="nameError" style="color: red;"></div>
   <form action = "<?php echo base_url('category/store')?>" method="POST" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleInputEmail1">Title</label>
-    <input type="text" name="title" class="form-control" onkeyup="ChangeToSlug();" id="slug"  aria-describedby="emailHelp" >
+    <input type="text" name="title" class="form-control" onkeyup="ChangeToSlug();" id="slug"  aria-describedby="emailHelp" oninput="validateInput(this)">
     <?php echo '<span class="text text-danger">'.form_error('title').'</span>';?>
   </div>
   <div class="form-group">
@@ -45,7 +46,7 @@ if ($this->session->flashdata('success'))
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Description</label>
-    <input type="text" name="description" class="form-control" id="exampleInputPassword1" >
+    <input type="text" name="description" class="form-control" id="exampleInputPassword1" oninput="validateInput(this)">
     <?php echo '<span class="text text-danger">'.form_error('description').'</span>';?>
   </div>
   <div class="form-group">

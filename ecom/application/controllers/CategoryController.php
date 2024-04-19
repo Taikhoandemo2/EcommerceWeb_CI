@@ -23,8 +23,29 @@ class CategoryController extends CI_Controller {
 
         $this->load->model('CategoryModel');
         $data['category']=$this->CategoryModel->selectCategory();
+        if ($data['category'] == true) {
+            // convert to json
+            $ok_data = [
+                'status' => 200,
+                'message' => 'Show List category',
+            ];
+            header("HTTP/1.0 Show List category");
+            //$this->session->set_flashdata('success', json_encode($ok_data));
 
-		$this->load->view('category/list',$data);
+            $json_data = json_encode($data['category']);
+            $this->load->view("category/list",['json_data'=>$json_data] );
+
+            
+        } else {
+            $error_data = [
+                'status' => 404,
+                'message' => 'Not Found Brand',
+            ];
+            header("HTTP/1.0 404 Not Found");
+
+            echo json_encode($error_data);
+        }
+		
 		$this->load->view('admin_template/footer');
 	}
     public function create()
@@ -70,13 +91,27 @@ class CategoryController extends CI_Controller {
                     'image'=>$category_filename
                 ];
                 $this->load->model('CategoryModel');
-                $this->CategoryModel->insertCategory($data);
-                $this->session->set_flashdata('success','Add Success Category');
+                $data['category'] = $this->CategoryModel->insertCategory($data);
+                if ($data['category'] == true) {
+                    $ok_data = [
+                        'status' => 200,
+                        'message' => "Add Success Category",
+                    ];
+                    header("HTTP/1.0 200 Add Success Category");
+            $this->session->set_flashdata('success','Add Success Category');
+                    
+                }
                 redirect(base_url('category/list'));
             }
             
 	    }
         else{
+            $error_data = [
+                'status' => 500,
+                'message' => "Internal Server Error",
+            ];
+            header("HTTP/1.0 500 Internal Server Error");
+            echo json_encode($error_data);
             $this->create();
         }	
 }
@@ -137,11 +172,27 @@ class CategoryController extends CI_Controller {
                 ];
             }
             $this->load->model('CategoryModel');
-            $this->CategoryModel->updateCategory($id,$data);
+            $data['category'] = $this->CategoryModel->updateCategory($id,$data);
+            if ($data['category'] == true) {
+                $ok_data = [
+                    'status' => 200,
+                    'message' => "Add Success category",
+                ];
+                header("HTTP/1.0 200 Add Success category");
+                $this->session->set_flashdata('success', json_encode($ok_data));
+
+                //return json_encode($ok_data);
+            }
             $this->session->set_flashdata('success','Update Success Category');
             redirect(base_url('category/list'));
 	    }
         else{
+            $error_data = [
+                'status' => 500,
+                'message' => "Internal Server Error",
+            ];
+            header("HTTP/1.0 500 Internal Server Error");
+            echo json_encode($error_data);
             $this->edit($id);
         }
     

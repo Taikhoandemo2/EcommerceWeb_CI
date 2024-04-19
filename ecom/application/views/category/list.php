@@ -18,6 +18,11 @@
     ?>
         <div class="card-body">
         <a href="<?php echo base_url('category/create')?>" class="btn btn-primary">Add Category</a>
+        <?php
+            // Decode JSON data
+            $category_data = json_decode($json_data);
+            if ($category_data !== null && is_array($category_data)) {
+            ?>
         <table class="table table-striped">
         <thead>
             <tr>
@@ -32,7 +37,7 @@
         </thead>
         <tbody>
             <?php
-            foreach($category as $key => $cate) {
+            foreach($category_data as $key => $cate) {
             ?>
             <tr>
             <th scope="row"><?php echo $key+1?></th>
@@ -63,6 +68,9 @@
             ?>
         </tbody>
         </table>
+        <?php } else { ?>
+                <p>No sliders found.</p>
+            <?php } ?>
         </div>
 </div>
 </div>

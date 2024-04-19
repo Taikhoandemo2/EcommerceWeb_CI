@@ -5,74 +5,74 @@
 					<div class="col-sm-2">
 						<div class="companyinfo">
 							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<p>Capture your happiness stay connection on-the-go</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
-								<a href="#">
+								<a href="https://i.pinimg.com/564x/9f/dc/a3/9fdca37500f606b700fa91f342d873f0.jpg">
 									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
+										<img src="https://i.pinimg.com/564x/9f/dc/a3/9fdca37500f606b700fa91f342d873f0.jpg" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>The Openning</p>
+								<h2>20 DEC 2024</h2>
 							</div>
 						</div>
 						
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
-								<a href="#">
+								<a href="https://i.pinimg.com/564x/6f/ad/14/6fad14febab9ec381cae32fe77e4a7be.jpg">
 									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
+										<img src="https://i.pinimg.com/564x/6f/ad/14/6fad14febab9ec381cae32fe77e4a7be.jpg" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>Zone every boy want</p>
+								<h2>29 DEC 2024</h2>
 							</div>
 						</div>
 						
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
-								<a href="#">
+								<a href="https://www.youtube.com/watch?v=NVaSur8Rei4">
 									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
+										<img src="https://i.pinimg.com/564x/58/d0/5c/58d05c0184743b7e191e9cac3dfa19a9.jpg" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
-								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<p>Shop Tour</p>
+								<h2>24 DEC 2024</h2>
 							</div>
 						</div>
 						
 						<div class="col-sm-3">
 							<div class="video-gallery text-center">
-								<a href="#">
+								<a href="https://i.pinimg.com/564x/2c/69/97/2c69974b26ff43d3fe31ddd086e98a88.jpg">
 									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
+										<img src="https://i.pinimg.com/564x/2c/69/97/2c69974b26ff43d3fe31ddd086e98a88.jpg" alt="" />
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
 									</div>
 								</a>
 								<p>Circle of Hands</p>
-								<h2>24 DEC 2014</h2>
+								<h2>24 DEC 2024</h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<img src="https://i.pinimg.com/564x/26/87/10/26871019b81abb32d8578d01c1acc46b.jpg" alt="" />
+							
 						</div>
 					</div>
 				</div>
@@ -277,5 +277,19 @@
 			}
 		});
   </script>
+ <script>
+ 	function validateInput(input) {
+				var regex = /^[a-zA-Z0-9\s]*$/; // Thêm \s để cho phép nhập khoảng trắng
+                var isValid = regex.test(input.value);
+                var errorDiv = document.getElementById('nameError');
+                
+                if (!isValid) {
+                    errorDiv.textContent = "You must enter characters or numbers not special characters!";
+                    input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+                } else {
+                    errorDiv.textContent = "";
+                }
+            }
+</script>
 </body>
 </html>
